@@ -17,6 +17,7 @@ import {
 } from 'lucide-react';
 import { personalInfo } from '@/constants/data';
 import { useState, useEffect } from 'react';
+import { publicPath } from '@/lib/paths';
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -76,8 +77,8 @@ export default function Navigation() {
   };
 
   const handleDownloadResume = () => {
-    // This would link to the actual resume PDF
-    window.open('/resume.pdf', '_blank');
+    // Link to resume with basePath support for GitHub Pages
+    window.open(publicPath('/resume.pdf'), '_blank');
   };
 
   return (

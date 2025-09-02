@@ -7,11 +7,12 @@ import { Download, Mail, Linkedin, MapPin, Phone } from 'lucide-react';
 import { personalInfo } from '@/constants/data';
 import { fadeInUp, staggerContainer } from '@/hooks/useScrollAnimation';
 import Image from 'next/image';
+import { publicPath } from '@/lib/paths';
 
 export default function Hero() {
   const handleDownloadResume = () => {
-    // This would link to the actual resume PDF
-    window.open('/resume.pdf', '_blank');
+    // Link to resume with basePath support for GitHub Pages
+    window.open(publicPath('/resume.pdf'), '_blank');
   };
 
   const handleContact = () => {
@@ -121,7 +122,7 @@ export default function Hero() {
                 <div className="relative w-80 h-80 md:w-96 md:h-96 bg-gradient-to-br from-secondary to-background rounded-2xl shadow-2xl border border-border/50 overflow-hidden">
                   {/* Professional headshot */}
                   <Image
-                    src="/sunit-headshot.jpg"
+                    src={publicPath('/sunit-headshot.jpg')}
                     alt="Sunit S. Carpenter - Professional Headshot"
                     fill
                     className="object-cover object-center"
